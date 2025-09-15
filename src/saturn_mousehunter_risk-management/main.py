@@ -16,9 +16,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic_settings import BaseSettings
 
 
-class Risk-managementSettings(BaseSettings):
+class RiskManagementSettings(BaseSettings):
     service_name: str = "saturn-mousehunter-risk-management"
-    port: int = 8084
+    port: int = 8003
     debug: bool = True
     log_level: str = "INFO"
 
@@ -33,7 +33,7 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 
 def create_app() -> FastAPI:
     """创建FastAPI应用"""
-    settings = Risk-managementSettings()
+    settings = RiskManagementSettings()
 
     # setup_logging(
     #     service_name=settings.service_name,
@@ -74,7 +74,7 @@ app = create_app()
 
 def main():
     """主函数"""
-    settings = Risk-managementSettings()
+    settings = RiskManagementSettings()
     uvicorn.run(
         "saturn_mousehunter_risk-management.main:app",
         host="0.0.0.0",
