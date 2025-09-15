@@ -21,6 +21,7 @@ class RiskRuleIn(BaseModel):
     priority: int = 100
 
 
+
 class RiskRuleOut(BaseModel):
     id: str
     rule_name: str
